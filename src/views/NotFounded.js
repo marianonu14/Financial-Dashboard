@@ -1,7 +1,7 @@
 const NotFounded = () => {
     return ( 
-    <div>
-        404
+    <div className="flex flex-1 justify-center items-center">
+        <h1 className="md:text-3xl text-xl">Error 404 - Page Not Founded</h1> 
     </div> );
 }
  

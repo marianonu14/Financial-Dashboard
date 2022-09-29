@@ -9,13 +9,13 @@ import { BsGraphUp } from 'react-icons/bs';
 const Sidebar = () => {
     let location = useLocation().pathname;
 
-    const styleActive = 'block p-2 mb-5 bg-white border-r-8 border-slate-500'
+    const styleActive = 'block p-2 mb-5 bg-white border-r-8 border-slate-600'
     const styleInactive = 'block p-2 mb-5'
 
     return ( 
         <>        
-        <nav className="bg-slate-300 hidden lg:block md:w-1/5">
-            <h1 className='py-4 text-center text-xl tracking-widest'>Financial Data</h1>
+        <nav className="bg-blue-300 hidden lg:block md:w-1/5">
+            <h1 className='py-4 text-center text-gray-900 text-xl tracking-widest'><span className='font-bold'>Financial</span> Data</h1>
             <ul className='py-2'>
                 <li>
                     <NavLink 
@@ -63,8 +63,8 @@ const Sidebar = () => {
                 </li>      
             </ul>
         </nav>
-        <nav className="bg-slate-300 block lg:hidden w-[50px]">
-            <span className='py-4 flex justify-center text-cyan-600'><MdDashboard size={30}/></span>
+        <nav className="bg-blue-300 block lg:hidden w-[50px]">
+            <span className='py-4 flex justify-center text-white'><MdDashboard size={30}/></span>
             <ul className='py-2'>
                 <li>
                     <NavLink 

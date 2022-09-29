@@ -1,41 +1,45 @@
 import { Routes, Route } from 'react-router-dom';
-import Footer from './components/Footer';
+import { useState, useEffect } from 'react';
+
 import Layout from './components/Layout';
 import Sidebar from './components/Sidebar';
-import Balance from './views/Balance';
-import CashFlow from './views/CashFlow';
 import Home from './views/Home'
 import Income from './views/Income';
+import Balance from './views/Balance';
+import CashFlow from './views/CashFlow';
+import Footer from './components/Footer';
 import NotFounded from './views/NotFounded';
 
-function App() {
+const App = () => {
+  const [data, setData] = useState([]);
 
-  const API_KEY = '0c737845394f91bc29c3c0ea05729034';
+  const API_KEY = 'ORYRJ141YOY5WRFB';
 
-  // fetch(`https://financialmodelingprep.com/api/v3/income-statement/AAPL?limit=150&apikey=${API_KEY}`)
-	// .then(response => response.json())
-	// .then(response => console.log(response))
-	// .catch(err => console.error(err));
+  useEffect(() => {
+      fetch(`https://www.alphavantage.co/query?function=OVERVIEW&symbol=AAPL&apikey=${API_KEY}`)
+      .then(response => response.json())
+      .then(response => setData(response))
+      .catch(err => console.error(err));
+  },[])
 
-  // fetch(`https://financialmodelingprep.com/api/v3/balance-sheet-statement/AAPL?limit=150&apikey=${API_KEY}`)
-	// .then(response => response.json())
-	// .then(response => console.log(response))
-	// .catch(err => console.error(err));
+  const handleSubmit = (input) => {
+      if(!input) return
 
-  // fetch(`https://financialmodelingprep.com/api/v3/cash-flow-statement/AAPL?limit=150&apikey=${API_KEY}`)
-	// .then(response => response.json())
-	// .then(response => console.log(response))
-	// .catch(err => console.error(err));
+      fetch(`https://www.alphavantage.co/query?function=OVERVIEW&symbol=${input}&apikey=${API_KEY}`)
+          .then(response => response.json())
+          .then(response => setData(response))
+          .catch(err => console.error(err));
+  }
 
   return (
     <>
       <Sidebar />
       <Layout>
         <Routes>
-          <Route index element={<Home/>} />
-          <Route path='income' element={<Income/>} />
-          <Route path='balance' element={<Balance/>} />
-          <Route path='cashflow' element={<CashFlow/>} />
+          <Route index element={<Home handleSubmit={handleSubmit} data={data}/>} />
+          <Route path='income' element={<Income data={data}/>} />
+          <Route path='balance' element={<Balance data={data}/>} />
+          <Route path='cashflow' element={<CashFlow data={data}/>} />
           <Route path='*' element={<NotFounded/>} />
         </Routes>
         <Footer />
