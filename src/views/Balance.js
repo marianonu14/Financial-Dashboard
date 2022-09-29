@@ -3,7 +3,7 @@ const Balance = ({data}) => {
     console.log('Desde Balance',data)
 
     return ( 
-        <div>Balance</div>
+        <h1 className="text-3xl p-4">Balance</h1>
      );
 }
  
