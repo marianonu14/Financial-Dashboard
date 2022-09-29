@@ -64,7 +64,7 @@ const Sidebar = () => {
                 </li>      
             </ul>
         </nav>
-        <nav className="bg-slate-800 fixed lg:hidden h-screen w-[50px]">
+        <nav className="bg-slate-800 fixed lg:hidden h-screen w-[50px] z-10">
             <span className='py-4 flex justify-center text-white'><MdDashboard size={30}/></span>
             <ul className='py-2'>
                 <li>

@@ -1,21 +1,23 @@
 import { useState } from 'react';
-import { Data } from '../data/Data'
+import { DataStockPrice } from '../data/DataStockPrice'
 
 import { BsSearch } from 'react-icons/bs';
-import BarChart from '../components/BarChart';
+import LineChart from '../components/LineChart';
 
 const Home = ({handleSubmit, data}) => {
     const [input, setInput] = useState('');
-    const [dataChart, setDataChart] = useState({
-        labels: Data.map(elem => elem.year),
+    
+    const dataChart = {
+        labels: DataStockPrice.map(elem => elem.year),
         datasets:[{
             label:"Stock Price",
-            data: Data.map(elem => elem.stockPrice),
+            data: DataStockPrice.map(elem => elem.stockPrice),
             backgroundColor: ["orange"]
         }]
-    });
+    };
 
     console.log('Desde Home:',data);
+    console.log(typeof(data));
 
     return ( 
         <main>
@@ -36,15 +38,15 @@ const Home = ({handleSubmit, data}) => {
                 onChange={(e) => setInput(e.target.value)} 
                 />
             </form>
-            {data 
+            {Object.entries(data).length !== 0
             ?           
             <section className='p-5'>
-                <h2 className='text-xl font-bold bg-gray-400 rounded-md p-2 mb-2'>{data.Name} <span>({data.Symbol})</span></h2>
-                <BarChart chartData={dataChart}/>
-                <p className='py-5 p-2 rounded-md bg-gray-400'><span className='font-bold'>Description: </span>{data.Description}</p>
+                <h2 className='text-xl font-bold bg-gray-300 rounded-md p-2 mb-2'>{data.Name} <span>({data.Symbol})</span></h2>
+                <LineChart chartData={dataChart}/>
+                <p className='py-5 p-2 rounded-md bg-gray-300'><span className='font-bold'>Description: </span>{data.Description}</p>
             </section> 
             : 
-            <p>Falta la Data</p>
+            <p className='flex justify-center'>Data Not Founded</p>
             }
         </main>
      );
