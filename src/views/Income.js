@@ -1,9 +1,7 @@
 const Income = ({data}) => {
 
     const wrapperClass = 'bg-slate-300 rounded-md p-2 md:text-xl'
-    
     const titleCard = 'font-bold mb-3'
-    console.log('Desde Income',data)
 
     return ( 
         <main>
