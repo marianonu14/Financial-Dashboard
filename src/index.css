@@ -5,7 +5,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
 @layer base {
-    
     *, *:before, *:after {
         box-sizing: inherit;
         font-family: 'Inter', sans-serif;
@@ -18,5 +17,9 @@
     body{
       @apply bg-[#ecf0f3] box-border
     }
-    
   }
+
+#root {
+  height: 100vh;
+  display: flex;
+}
