@@ -6,7 +6,6 @@ import { ImParagraphLeft } from 'react-icons/im';
 import { GoGraph } from 'react-icons/go';
 import { BsGraphUp } from 'react-icons/bs';
 
-
 const Sidebar = () => {
     let location = useLocation().pathname;
 

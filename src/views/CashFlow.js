@@ -12,10 +12,8 @@ const CashFlow = ({data}) => {
         }]
     };
 
-    const wrapperClass = 'bg-slate-300 rounded-md p-2 w-full md:text-xl'
+    const wrapperClass = 'bg-slate-300 rounded-md p-2 w-full text-lg'
     const titleCard = 'font-bold mb-3'
-
-    console.log('Desde Cash Flow',data)
 
     return ( 
         <main>

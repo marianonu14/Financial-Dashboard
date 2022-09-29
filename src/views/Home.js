@@ -16,9 +16,6 @@ const Home = ({handleSubmit, data}) => {
         }]
     };
 
-    console.log('Desde Home:',data);
-    console.log(typeof(data));
-
     return ( 
         <main>
             <h1 className="text-3xl p-4">General Information</h1>

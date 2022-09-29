@@ -2,7 +2,6 @@ import { DataStockPrice } from '../data/DataStockPrice'
 import BarChart from '../components/BarChart';
 
 const Balance = ({data}) => {
-   
     const dataChart = {
         labels: DataStockPrice.map(elem => elem.year),
         datasets:[{
@@ -11,8 +10,6 @@ const Balance = ({data}) => {
             backgroundColor: ["red"]
         }]
     };
-
-    console.log('Desde Balance',data)
 
     return ( 
         <main>
