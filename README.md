@@ -27,5 +27,5 @@ You will also see any lint errors in the console.
 
 https://financial-dashboard-seven.vercel.app/
 
-![Project Image](https://financial-dashboard-seven.vercel.app/)
+![Project Image](https://github.com/marianonu14/Financial-Dashboard/blob/main/src/assets/financial-dashboard-app.png?raw=true)
 
